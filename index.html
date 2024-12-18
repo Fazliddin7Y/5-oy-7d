@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Login Section -->
+    <section id="login-section" class="h-screen flex items-center justify-center">
+        <div class="bg-white shadow-md rounded-lg p-8 w-96">
+            <h2 class="text-2xl font-bold mb-4 text-center">Login</h2>
+            <input id="username" type="text" placeholder="Username" class="w-full mb-4 p-2 border rounded">
+            <input id="password" type="password" placeholder="Password" class="w-full mb-4 p-2 border rounded">
+            <button id="login-btn" class="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600">Login</button>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products-section" class="hidden p-8">
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-4">
+            <h1 class="text-3xl font-bold">Каркасные</h1>
+            <button id="add-product-btn" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
+                + Добавить продукт
+            </button>
+        </div>
+        <!-- Products Table -->
+        <div class="bg-white p-4 rounded-lg shadow-md">
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr>
+                        <th class="p-2 border">#</th>
+                        <th class="p-2 border">Изображение</th>
+                        <th class="p-2 border">Название</th>
+                        <th class="p-2 border">Цена</th>
+                        <th class="p-2 border">Количество</th>
+                        <th class="p-2 border">Действия</th>
+                    </tr>
+                </thead>
+                <tbody id="products-list"></tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Add/Edit Product Modal -->
+    <div id="product-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div class="bg-white rounded-lg p-6 w-96">
+            <h2 id="modal-title" class="text-xl font-bold mb-4"></h2>
+            <input id="product-name" type="text" placeholder="Product Name" class="w-full mb-2 p-2 border rounded">
+            <input id="product-price" type="number" placeholder="Price" class="w-full mb-2 p-2 border rounded">
+            <input id="product-quantity" type="number" placeholder="Quantity" class="w-full mb-2 p-2 border rounded">
+            <input id="product-image" type="text" placeholder="Image URL" class="w-full mb-4 p-2 border rounded">
+            <div class="flex justify-end">
+                <button id="close-modal-btn" class="mr-2 px-4 py-2 bg-gray-300 rounded">Cancel</button>
+                <button id="save-product-btn" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Indicator -->
+    <div id="loading" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div class="text-white text-2xl">Loading...</div>
+    </div>
+
+    <!-- Script -->
+    <script src="./main.js"></script>
+</body>
+</html>
